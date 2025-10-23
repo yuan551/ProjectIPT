@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Messages";
+    Layout = "~/Views/Shared/ReCommerceLayout.cshtml";
+    // This view needs the main header
+    ViewBag.ShowHeader = true;
+}
+
+<div class="container-fluid py-3">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="recom-heading mb-3">Messages</h1>
+            <div class="card p-0" style="border: 1px solid black; border-radius: 0; min-height: 70vh;">
+                <div class="row g-0 h-100">
+
+                    <div class="col-md-4 border-end border-dark">
+                        <div class="p-3 border-bottom border-dark">
+                            <input type="text" class="form-control" placeholder="Search conversation">
+                        </div>
+
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action py-3 recom-box-border rounded-0" style="border: 1px solid black; background-color: var(--recommerce-blue);">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1 recom-heading">John De Guzman</h5>
+                                    <small class="text-muted">1 min ago</small>
+                                </div>
+                                <p class="mb-1 small">What do you want to buy?</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action py-3 rounded-0 border-bottom border-dark">
+                                <h5 class="mb-1 recom-heading">Another User</h5>
+                                <p class="mb-1 small text-truncate">I am interested in your listing...</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action py-3 rounded-0 border-bottom border-dark">
+                                <h5 class="mb-1 recom-heading">Jane Doe</h5>
+                                <p class="mb-1 small text-truncate">Okay, I will send the payment now.</p>
+                            </a>
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                    <a href="#" class="list-group-item list-group-item-action py-3 rounded-0 border-bottom border-dark">
+                                        <h5 class="mb-1 recom-heading">User @(i + 1)</h5>
+                                        <p class="mb-1 small text-truncate">This is a placeholder message.</p>
+                                    </a>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 d-flex flex-column">
+                        <div class="p-3 border-bottom border-dark d-flex align-items-center">
+                            <h5 class="mb-0 recom-heading">John De Guzman</h5>
+                        </div>
+
+                        <div class="flex-grow-1 p-3 overflow-auto" style="max-height: calc(70vh - 120px);"> 
+                            <div class="d-flex justify-content-start mb-2">
+                                <div class="p-2 recom-box-border" style="background-color: var(--recommerce-blue); max-width: 60%;">
+                                    Hi John, are you still selling the item?
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mb-2">
+                                <div class="p-2 recom-box-border" style="background-color: #E0E0E0; max-width: 60%;">
+                                    Hello! Yes, it's still available.
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mb-2">
+                                <div class="p-2 recom-box-border" style="background-color: #E0E0E0; max-width: 60%;">
+                                    What do you want to buy?
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-start mb-2">
+                                <div class="p-2 recom-box-border" style="background-color: var(--recommerce-blue); max-width: 60%;">
+                                    I'd like to purchase the vintage camera. Can you send more details?
+                                </div>
+                            </div>
+                            </div>
+
+                        <div class="p-3 border-top border-dark">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Type a message...">
+                                <button class="btn btn-recom-primary" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.724l-.146.063a.5.5 0 0 0 0 .99l15.158 5.72a.5.5 0 0 0 .638-.58L15.964.686Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

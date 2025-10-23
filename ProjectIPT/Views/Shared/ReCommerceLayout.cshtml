@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RE-COMMERCE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Define the light blue accent color */
+        :root {
+            --recommerce-blue: #ADD8E6; /* Light Blue */
+            --inter-font: 'Inter', sans-serif;
+            --lato-font: 'Lato', sans-serif;
+        }
+
+        /* Global body and font styles */
+        body {
+            font-family: var(--lato-font);
+            color: black;
+            background-color: white;
+        }
+
+        /* Inter for headings/titles (H1, H2, H3, etc.) */
+        .recom-heading {
+            font-family: var(--inter-font);
+            font-weight: 700;
+        }
+
+        /* Custom button styling */
+        .btn-recom-primary {
+            background-color: var(--recommerce-blue);
+            border-color: var(--recommerce-blue);
+            color: black;
+            font-weight: 700;
+            font-family: var(--lato-font);
+        }
+        .btn-recom-primary:hover {
+            background-color: #90BEE2; /* Slightly darker blue on hover */
+            border-color: #90BEE2;
+            color: black;
+        }
+
+        /* Input field and form container styling for the light blue background */
+        .recom-form-container {
+            background-color: var(--recommerce-blue);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .recom-box-border {
+            border: 1px solid black;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        @if (ViewBag.ShowHeader == true)
+        {
+                <nav class="navbar navbar-expand-sm navbar-light bg-light" style="border-bottom: 2px solid black;">
+                    <div class="container-fluid">
+                        <a class="navbar-brand recom-heading fs-4" href="#">RE-COMMERCE</a>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+                                <li class="nav-item"><a class="nav-link active btn btn-recom-primary py-1 px-3" aria-current="page" href="#">Messages</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/Account/LogOut">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+        }
+    </header>
+
+    <div class="container-fluid py-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="height: 50px;">
+        <div class="container-fluid h-100 d-flex align-items-center justify-content-center">
+            <span class="text-secondary">footer placeholder</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿@model ProjectIPT.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/ReCommerceLayout.cshtml";
+    // This view does not need the main header
+    ViewBag.ShowHeader = false;
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="row w-100">
+        <div class="col-md-8 mx-auto d-flex flex-wrap justify-content-center">
+
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center p-4">
+                <div class="recom-box-border w-75" style="aspect-ratio: 1 / 1;">
+                    <div class="d-flex flex-column h-100 justify-content-center align-items-center">
+                        <img src="/images/recommerce-logo.png" alt="RE-COMMERCE Logo" class="img-fluid" style="max-height: 50%;">
+                        <span class="mt-2 text-secondary recom-heading">RE-COMMERCE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6 p-4">
+                <div class="recom-form-container">
+                    <h2 class="text-center mb-4 recom-heading">WELCOME</h2>
+                    <h4 class="text-center mb-4 fs-6">Log into your account</h4>
+
+                    <form asp-controller="ReCommerce" asp-action="Message" method="post">
+
+                        @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+                        {
+                                <div class="alert alert-danger" role="alert">
+                                @ViewBag.Error
+                                </div>
+                        }
+
+                        <div class="mb-3">
+                            <label for="emailaddress" class="form-label visually-hidden">Email Address:</label>
+                            <input type="text" class="form-control" id="emailaddress" name="EmailAddress" placeholder="Email Address" required>
+                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label visually-hidden">Password</label>
+                            <input type="password" class="form-control" id="password" name="Password" placeholder="Password" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <div class="text-end mt-1">
+                                <a href="#" class="text-dark small text-decoration-none">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mb-3">
+                            <button type="submit" class="btn btn-recom-primary">Login</button>
+                        </div>
+
+                        <div class="text-center small">
+                            Don't have an account yet? 
+                            <a href="/ReCommerce/Registration" class="text-dark text-decoration-none d-block mt-1">
+                                <button type="button" class="btn btn-outline-dark btn-sm recom-heading w-50">Register</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
